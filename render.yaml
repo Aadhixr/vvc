@@ -4,7 +4,7 @@ services:
 
   - type: web
 
-    name: voc
+    name: 
 
     env: python
 
@@ -12,7 +12,7 @@ services:
 
     buildCommand: pip3 install -U -r requirements.txt
 
-    repo: https://github.com/Aadhi000/voc.git # optional
+    repo: https://github.com/Aadhixr/vvc.git # optional
 
     region: oregon # optional (defaults to oregon)
 
