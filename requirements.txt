@@ -10,3 +10,4 @@ git+https://github.com/Aadhi000/cine
 datetime
 pytz
 aiohttp
+heroku3
