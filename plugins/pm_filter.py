@@ -15,7 +15,7 @@ from database.connections_mdb import active_connection, all_connections, delete_
 from info import ADMINS, PICS_RT, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, DELETE_TIME, CH_FILTER, CH_LINK
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
@@ -235,7 +235,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             f"𝙶𝚁𝙾𝚄𝙿 𝙽𝙰𝙼𝙴 :- **{title}**\n𝙶𝚁𝙾𝚄𝙿 𝙸𝙳 :- `{group_id}`",
             reply_markup=keyboard,
-            parse_mode="md"
+            parse_mode=enums.ParseMode.MARKDOWN
         )
         return await query.answer('𝙿𝙻𝙴𝙰𝚂𝙴 𝚂𝙷𝙰𝚁𝙴 𝙰𝙽𝙳 𝚂𝚄𝙿𝙿𝙾𝚁𝚃')
     elif "connectcb" in query.data:
@@ -254,7 +254,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if mkact:
             await query.message.edit_text(
                 f"𝙲𝙾𝙽𝙽𝙴𝙲𝚃𝙴𝙳 𝚃𝙾 **{title}**",
-                parse_mode="md"
+                parse_mode=enums.ParseMode.MARKDOWN
             )
         else:
             await query.message.edit_text('Some error occurred!!', parse_mode="md")
@@ -274,12 +274,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if mkinact:
             await query.message.edit_text(
                 f"Disconnected from **{title}**",
-                parse_mode="md"
+                parse_mode=enums.ParseMode.MARKDOWN
             )
         else:
             await query.message.edit_text(
                 f"Some error occurred!!",
-                parse_mode="md"
+                parse_mode=enums.ParseMode.MARKDOWN
             )
         return
     elif "deletecb" in query.data:
@@ -297,7 +297,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             await query.message.edit_text(
                 f"Some error occurred!!",
-                parse_mode="md"
+                parse_mode=enums.ParseMode.MARKDOWN
             )
         return await query.answer('𝙿𝙻𝙴𝙰𝚂𝙴 𝚂𝙷𝙰𝚁𝙴 𝙰𝙽𝙳 𝚂𝚄𝙿𝙿𝙾𝚁𝚃')
     elif query.data == "backcb":
@@ -450,7 +450,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(        
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
         await query.answer('sᴜᴘᴘᴏʀᴛ ᴘʟᴇᴀsᴇ')
     elif query.data == "help":
@@ -466,7 +466,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "stats":
         buttons = [[
@@ -484,7 +484,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "rfrsh":
         await query.answer("ᴜᴘᴅᴀᴛɪɴɢ ᴍʏ ᴅʙ ᴅᴇᴛᴀɪʟs")
@@ -503,7 +503,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
