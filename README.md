@@ -1,4 +1,4 @@
-## <b>[NeoAutoFilterBoot](https://telegram.dog/NeoAutoFilterBot)</b>
+## <b[Hixxer](https://telegram.dog/NeoAutoFilterBot)</b>
 <p align="center">
   <img src="Logo/New Project 33 [11ACD6A].png" alt="Neo Logo">
 </p>
