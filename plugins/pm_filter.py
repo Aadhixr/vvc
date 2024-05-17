@@ -460,7 +460,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Stats', callback_data='stats'),
                     InlineKeyboardButton('Search Movie', switch_inline_query_current_chat='')
                 ],[
-                    InlineKeyboardButton("Join Updates Channel", url="https://t.me/+y0VZlJTcg_BkZWE1")            
+                    InlineKeyboardButton("‎‎‎", url="t.me/hixxerbot")            
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
