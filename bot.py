@@ -7,7 +7,7 @@ logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
-from pyrogram import Client, version
+from pyrogram import Client, __version__  # Corrected import
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
@@ -25,8 +25,8 @@ import asyncio
 
 class Bot(Client):
 
-    def init(self):
-        super().init(
+    def __init__(self):
+        super().__init__(
             name=SESSION,
             api_id=API_ID,
             api_hash=API_HASH,
@@ -48,7 +48,7 @@ class Bot(Client):
             temp.U_NAME = me.username
             temp.B_NAME = me.first_name
             self.username = '@' + me.username
-            logging.info(f"{me.first_name} with Pyrogram v{version} (Layer {layer}) started on {me.username}.")
+            logging.info(f"{me.first_name} with Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
             logging.info(LOG_STR)
             logging.info(script.LOGO)
             tz = pytz.timezone('Asia/Kolkata')
