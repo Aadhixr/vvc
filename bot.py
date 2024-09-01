@@ -62,8 +62,8 @@ class Bot(Client):
             await web.TCPSite(app, bind_address, PORT).start()
 
         except FloodWait as e:
-            logging.error(f"FloodWait: Need to wait for {e.x} seconds.")
-            await asyncio.sleep(e.x)
+            logging.error(f"FloodWait: Need to wait for {e.value} seconds.")  # Corrected line
+            await asyncio.sleep(e.value)
             await self.start()
 
         except Exception as e:
