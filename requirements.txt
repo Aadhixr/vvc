@@ -11,3 +11,4 @@ datetime
 pytz
 aiohttp
 heroku3
+IMDbPY>=2023.5.1
